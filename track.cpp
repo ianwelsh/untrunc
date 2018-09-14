@@ -85,6 +85,7 @@ void Codec::parse(Atom *trak, vector<int> &offsets, Atom *mdat) {
 	for(int i = 0; i < offsets.size(); i++) {
 		int offset = offsets[i];
 		if(offset < mdat->start || offset - mdat->start > mdat->length) {
+			break;
 			cout << "Invalid offset in track!\n";
 			exit(0);
 		}
